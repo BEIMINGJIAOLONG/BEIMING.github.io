@@ -4,26 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>名片</title>
-
 <style>
 /* 动态营业时间指示器 */
 .hours-indicator {
-  width: 100%;
+  width: 65%;
   height: 8px;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 4px;
   margin: 12px auto;
-  padding-left: 70px;
   position: relative;
 }
 .hours-progress {
-  width: 42%; /* 10:00-23:00的营业进度 */
+  width: 65%; /* 10:00-23:00的营业进度 */
   height: 100%;
   background: linear-gradient(90deg, #ffd700, #ffaa00);
   border-radius: 4px;
   transition: 0.3s;
 }
-
 /* 快捷拨号按钮 */
 .call-button {
   display: block;
@@ -42,7 +39,6 @@
 .call-button:hover {
   transform: scale(1.05);
 }
-
 /* 新增营业时间动态显示 */
 .live-time {
   text-align: center;
@@ -58,7 +54,6 @@
 </style>
 </head>
 <body style="width: 100%;">
-
 <div class="card">
   <h2 style="color:#000; text-align:center; margin-bottom:5px; font-size: 50px;">
     齐鲁名饮
@@ -66,9 +61,7 @@
   <p style="color:#aaa; text-align:center; font-size:0.9em; font-size: 20px;">
     —— 保真直供 专业甄选 ——
   </p>
-
   <div class="divider"></div>
-
   <div style="color:#000;width:100%; margin:0 auto; font-size: 24px;">
     <span class="highlight">▌店主</span>&nbsp;&nbsp;王平艳<br>
     <span class="highlight">▌热线</span>&nbsp;&nbsp;133-3512-1866<br>
@@ -78,9 +71,7 @@
     <span class="highlight">▌主营产品</span>&nbsp;&nbsp;名烟名酒、茶叶、海参、海鲜礼品、工艺品、特产<br>
     <span class="highlight">▌服务宗旨</span>&nbsp;&nbsp;快速满足你的需求<br>
   </div>
-
   <div class="divider"></div>
-
   <!-- 新增动态营业时间模块 -->
   <div class="live-time" style=" font-size: 25px;">
      当前营业状态：<span id="status">营业中</span>
@@ -88,18 +79,15 @@
   <div class="hours-indicator">
     <div class="hours-progress"></div>
   </div>
-
   <!-- 快捷拨号按钮 -->
   <a href="tel:13335121866" class="call-button" style="color: #000 !important; background:#34e2dc;">
      一键联系店主
   </a>
-
   <p style="color:# 0666; font-size:0.7em; text-align:center; margin-top:50px;">
     根据《未成年人保护法》第37条<br>
     本店不向未成年人销售烟酒制品
   </p>
 </div>
-
 <script>
 // 实时营业时间检测
 function updateBusinessStatus() {
@@ -115,11 +103,9 @@ function updateBusinessStatus() {
     statusElement.style.color = '#FF4444';
   }
 }
-
 // 每5分钟更新一次状态
 setInterval(updateBusinessStatus, 300000);
 updateBusinessStatus();
 </script>
-
 </body>
 </html>
