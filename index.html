@@ -8,12 +8,11 @@
 <style>
 /* 动态营业时间指示器 */
 .hours-indicator {
-  width: 90%;
+  width: 65%;
   height: 8px;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 4px;
   margin: 12px auto;
-  padding-left: 88px;
   position: relative;
 }
 .hours-progress {
@@ -108,7 +107,7 @@ function updateBusinessStatus() {
   
   if (hour >= 8 && hour < 21) {
     statusElement.textContent = '营业中 ';
-    statusElement.style.color = '# 032CD32';
+    statusElement.style.color = '#32CD32';
   } else {
     statusElement.textContent = '已打烊 ';
     statusElement.style.color = '#FF4444';
