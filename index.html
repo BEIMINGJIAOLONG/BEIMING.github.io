@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>名片</title>
+
+<style>
+/* 动态营业时间指示器 */
+.hours-indicator {
+  width: 60%;
+  height: 8px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 4px;
+  margin: 15px auto;
+  position: relative;
+}
+.hours-progress {
+  width: 42%; /* 10:00-23:00的营业进度 */
+  height: 100%;
+  background: linear-gradient(90deg, #ffd700, #ffaa00);
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+/* 快捷拨号按钮 */
+.call-button {
+  display: block;
+  width: 60%;
+  margin: 15px auto;
+  padding: 12px;
+  background: linear-gradient(45deg, # 032CD32, # 0228B22);
+  color: white !important;
+  text-align: center;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(34,139,34,0.3);
+  transition: transform 0.2s;
+}
+.call-button:hover {
+  transform: scale(1.05);
+}
+
+/* 新增营业时间动态显示 */
+.live-time {
+  text-align: center;
+  color: #ffd700;
+  font-size: 0.9em;
+  margin: 10px 0;
+}
+.highlight {
+  text-align:left;
+  font-weight:bold;
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <h2 style="color:#000; text-align:center; margin-bottom:5px; font-size: 60px;">
+    齐鲁名饮
+  </h2>
+  <p style="color:#aaa; text-align:center; font-size:0.9em; font-size: 25px;">
+    —— 保真直供 专业甄选 ——
+  </p>
+
+  <div class="divider"></div>
+
+  <div style="color:#000;width:600px; margin:0 auto; font-size: 40px;">
+    <span class="highlight">▌店主</span>  王平艳<br>
+    <span class="highlight">▌热线</span>  133-3512-1866<br>
+    <span class="highlight">▌地址</span>  山东省济南市市中区经五路11号<br>
+    <span class="highlight">▌营业时间</span>  08:00-21:00（全年无休）<br>
+    <span class="highlight">▌主营形式</span>  批发、零售、其他<br>
+    <span class="highlight">▌主营产品</span>  名烟名酒、茶叶、海参、海鲜礼品、工艺品、特产<br>
+    <span class="highlight">▌服务宗旨</span>  快速满足你的需求
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 新增动态营业时间模块 -->
+  <div class="live-time" style=" font-size: 25px;">
+     当前营业状态：<span id="status">营业中</span>
+  </div>
+  <div class="hours-indicator">
+    <div class="hours-progress"></div>
+  </div>
+
+  <!-- 快捷拨号按钮 -->
+  <a href="tel:13335121866" class="call-button" style="color: #000 !important; background:#34e2dc;">
+     一键直拨店主
+  </a>
+
+  <p style="color:# 0666; font-size:0.7em; text-align:center; margin-top:50px;">
+    根据《未成年人保护法》第37条<br>
+    本店不向未成年人销售烟酒制品
+  </p>
+</div>
+
+<script>
+// 实时营业时间检测
+function updateBusinessStatus() {
+  const now = new Date();
+  const hour = now.getHours();
+  const statusElement = document.getElementById('status');
+  
+  if (hour >= 8 && hour < 21) {
+    statusElement.textContent = '营业中 ';
+    statusElement.style.color = '# 032CD32';
+  } else {
+    statusElement.textContent = '已打烊 ';
+    statusElement.style.color = '#FF4444';
+  }
+}
+
+// 每5分钟更新一次状态
+setInterval(updateBusinessStatus, 300000);
+updateBusinessStatus();
+</script>
+
+</body>
+</html>
